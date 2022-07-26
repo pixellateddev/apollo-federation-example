@@ -1,12 +1,33 @@
 type Query {
+    "get list of users"
     getUsers: [User!]!
+    "get a particular user"
     getUser(userId: String!): User
+}
+
+
+type Mutation {
+    "increment the views of the user"
+    incrementViews(userId: String!): IncrementViewResponse!
 }
 
 type User {
     id: ID!
+    "First Name of the User"
     firstName: String!
+    "last name of the user"
     lastName: String
+    "age of the user"
     age: Int!
+    "whether the user is open to work or not"
     openToWork: Boolean
+    "number of views to the profile"
+    numberOfViews: Int!
+}
+
+type IncrementViewResponse {
+    message: String!
+    success: Boolean!
+    code: String!
+    user: User
 }
