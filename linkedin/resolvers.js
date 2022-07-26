@@ -6,6 +6,10 @@ const resolvers = {
 
         getUser: (_, { userId }, { dataSources }) => {
             return dataSources.linkedInAPI.getUser(userId)
+        },
+
+        getConnections: (_, { userId }, { dataSources }) => {
+            return dataSources.linkedInAPI.getConnections(userId)
         }
     },
 
@@ -33,7 +37,10 @@ const resolvers = {
     User: {
         numberOfViews: (user) => {
             return user.views
-        }
+        },
+        numberOfConnections: (user, _, { dataSources }) => {
+            return dataSources.linkedInAPI.getNumberOfConnections(user.id)
+        }   
     }
 }
 

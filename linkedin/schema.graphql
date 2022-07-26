@@ -2,7 +2,9 @@ type Query {
     "get list of users"
     getUsers: [User!]!
     "get a particular user"
-    getUser(userId: String!): User
+    getUser(userId: ID!): User
+    "get user's connections"
+    getConnections(userId: ID!): [User!]!
 }
 
 
@@ -23,6 +25,8 @@ type User {
     openToWork: Boolean
     "number of views to the profile"
     numberOfViews: Int!
+    "number of connections of users"
+    numberOfConnections: Int!
 }
 
 type IncrementViewResponse {
