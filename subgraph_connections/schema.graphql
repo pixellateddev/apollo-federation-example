@@ -1,0 +1,15 @@
+extend schema
+  @link(url: "https://specs.apollo.dev/federation/v2.0",
+        import: ["@key"])
+
+type Query {
+    "get user's connections"
+    getConnections(userId: ID!): [User!]!
+}
+
+
+type User {
+    id: ID!
+    "number of connections of users"
+    numberOfConnections: Int!
+}

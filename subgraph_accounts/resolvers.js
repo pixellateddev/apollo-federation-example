@@ -1,16 +1,12 @@
 const resolvers = {
     Query: {
         getUsers: (_, __, { dataSources }) => {
-            return dataSources.linkedInAPI.getUsers()
+            return dataSources.accountsAPI.getUsers()
         },
 
         getUser: (_, { userId }, { dataSources }) => {
-            return dataSources.linkedInAPI.getUser(userId)
+            return dataSources.accountsAPI.getUser(userId)
         },
-
-        getConnections: (_, { userId }, { dataSources }) => {
-            return dataSources.linkedInAPI.getConnections(userId)
-        }
     },
 
     Mutation: {
@@ -37,10 +33,7 @@ const resolvers = {
     User: {
         numberOfViews: (user) => {
             return user.views
-        },
-        numberOfConnections: (user, _, { dataSources }) => {
-            return dataSources.linkedInAPI.getNumberOfConnections(user.id)
-        }   
+        }
     }
 }
 

@@ -1,0 +1,19 @@
+{
+  "name": "linkedin-lite",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Himanshu Sagar <pixellateddev@gmail.com>",
+  "type": "module",
+  "license": "MIT",
+  "dependencies": {
+    "@apollo/gateway": "^2.0.5",
+    "@apollo/subgraph": "^2.0.5",
+    "apollo-server": "^3.10.0",
+    "graphql": "^16.5.0",
+    "nodemon": "^2.0.19"
+  },
+  "scripts": {
+    "dev:accounts": "nodemon ./subgraph_accounts/index.js",
+    "dev:connections": "nodemon ./subgraph_connections/index.js"
+  }
+}

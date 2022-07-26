@@ -1,19 +1,27 @@
+extend schema
+  @link(url: "https://specs.apollo.dev/federation/v2.0",
+        import: ["@key"])
+
 type Query {
     "get list of users"
     getUsers: [User!]!
     "get a particular user"
     getUser(userId: ID!): User
-    "get user's connections"
-    getConnections(userId: ID!): [User!]!
 }
-
 
 type Mutation {
     "increment the views of the user"
     incrementViews(userId: String!): IncrementViewResponse!
 }
 
-type User {
+type IncrementViewResponse {
+    message: String!
+    success: Boolean!
+    code: String!
+    user: User
+}
+
+type User @key(fields: "id") {
     id: ID!
     "First Name of the User"
     firstName: String!
@@ -25,13 +33,4 @@ type User {
     openToWork: Boolean
     "number of views to the profile"
     numberOfViews: Int!
-    "number of connections of users"
-    numberOfConnections: Int!
-}
-
-type IncrementViewResponse {
-    message: String!
-    success: Boolean!
-    code: String!
-    user: User
 }
