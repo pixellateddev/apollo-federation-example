@@ -6,6 +6,10 @@ const resolvers = {
     },
 
     User: {
+        __resolveReference: (user) => {
+            console.log(user)
+            return user
+        },
         numberOfConnections: (user, _, { dataSources }) => {
             return dataSources.connectionsAPI.getNumberOfConnections(user.id)
         }

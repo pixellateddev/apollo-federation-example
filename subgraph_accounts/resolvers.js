@@ -13,7 +13,7 @@ const resolvers = {
         incrementViews: (_, { userId }, { dataSources }) => {
             let user
             try {
-                user = dataSources.linkedInAPI.incrementViews(userId)
+                user = dataSources.accountsAPI.incrementViews(userId)
             } catch(err) {
                 return {
                     message: err.message,
@@ -31,6 +31,9 @@ const resolvers = {
     },
 
     User: {
+        __resolveReference: (user, { dataSources }) => {
+            return dataSources.accountsAPI.getUser(user.id)
+        },
         numberOfViews: (user) => {
             return user.views
         }

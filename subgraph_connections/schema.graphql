@@ -8,7 +8,7 @@ type Query {
 }
 
 
-type User {
+type User @key(fields: "id") {
     id: ID!
     "number of connections of users"
     numberOfConnections: Int!
