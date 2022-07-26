@@ -1,0 +1,40 @@
+{
+    "users": [
+        {
+            "id": "lskywalker",
+            "firstName": "Luke",
+            "lastName": "Skywalker",
+            "age": 23,
+            "openToWork": false,
+            "views": 13
+        },
+        {
+            "id": "hsolo",
+            "firstName": "Han",
+            "lastName": "Solo",
+            "age": 24,
+            "openToWork": true,
+            "views": 4
+        },
+        {
+            "id": "yoda",
+            "firstName": "Yoda",
+            "age": 12,
+            "openToWork": true,
+            "views": 35
+        }
+    ],
+
+    "connections": [
+        {
+            "id": 1,
+            "user-1": "lskywalker",
+            "user-2": "hsolo"
+        },
+        {
+            "id": 2,
+            "user-1": "yoda",
+            "user-2": "lskywalker"
+        }
+    ]
+}
